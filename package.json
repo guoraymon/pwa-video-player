@@ -1,0 +1,18 @@
+{
+  "name": "pwa-video-player",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build --base=./",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vite-plugin-pwa": "^0.11.12",
+    "workbox-window": "^6.4.2"
+  },
+  "dependencies": {
+    "@types/wicg-file-system-access": "^2020.9.4"
+  }
+}
