@@ -7,3 +7,9 @@
 | WasmVideoPlayer |                正常                |                  正常                   | null function or function signature mismatch | avformat_open_input failed 8 |
 |   h265web.js    |                正常                |                  正常                   |                    绿屏、卡顿                     | is playing: false            |
 | WXInlinePlayer  |         loadSuccess但无画面          |            loadSuccess但无画面            |               loadSuccess但无画面                | loadSuccess但无画面              |
+
+2021-12-29
+==================
+本来这个项目就是想尝试一下PWA的`file-handle`特性，如果可以的话顺便替代掉`potplayer`。
+`file-handle`已经实现了，体验还不错，至于替代`potplayer`，尝试过几款h265播放器效果都不好的，手机录制的4K HEVC都不能正常播放。
+暂时也没有自己写播放器的打算，此项目只能先搁置了。
