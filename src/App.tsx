@@ -6,6 +6,22 @@ function App() {
   const [url, setUrl] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  if ('launchQueue' in window) {
+    // @ts-ignore
+    launchQueue.setConsumer(async launchParams => {
+      if (!launchParams.files.length)
+        return
+
+      for (const fileHandle of launchParams.files) {
+        const file = await fileHandle.getFile()
+        const url = URL.createObjectURL(file)
+        setUrl(url)
+      }
+    })
+  } else {
+    alert('File Handling API is not supported!')
+  }
+
   const onClick = ({ key }: { key: string }) => {
     switch (key) {
       case 'openFile': {
@@ -27,10 +43,9 @@ function App() {
     setIsModalVisible(false);
   };
 
-  const handleSubmit = (value: string) => {
+  const handleSubmit = (url: string) => {
     setIsModalVisible(false);
-    setUrl(value)
-
+    setUrl(url)
   };
 
   const menu = (

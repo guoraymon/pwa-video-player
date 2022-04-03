@@ -10,11 +10,20 @@ export default defineConfig({
       manifest: {
         name: 'PWA 视频播放器',
         short_name: 'PWA 视频播放器',
-        description: 'PWA 视频播放器', 
+        description: 'PWA 视频播放器',
         icons: [
           {
             src: 'favicon.svg',
             sizes: '512x512'
+          }
+        ],
+        // @ts-ignore
+        file_handlers: [
+          {
+            action: "./index.html",
+            accept: {
+              "video/*": [".mp4", ".mkv"]
+            }
           }
         ]
       }

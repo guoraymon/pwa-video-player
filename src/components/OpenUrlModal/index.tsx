@@ -3,7 +3,7 @@ import { Form, Input, Modal } from "antd";
 interface IOpenUrlModalProps {
     visible: boolean;
     onCancel: () => void;
-    handleSubmit: (value: string) => void;
+    handleSubmit: (url: string) => void;
 }
 
 function OpenUrlModal(props: IOpenUrlModalProps) {
@@ -17,15 +17,15 @@ function OpenUrlModal(props: IOpenUrlModalProps) {
             onOk={() => {
                 form
                     .validateFields()
-                    .then(values => {
-                        props.handleSubmit(values.value)
-                        form.setFieldsValue({ value: '' })
-                    })
+                .then(values => {
+                    props.handleSubmit(values.url)
+                    form.resetFields()
+                })
             }}
         >
             <Form form={form} >
                 <Form.Item
-                    name="value"
+                    name="url"
                     rules={[{ required: true, message: '链接不能为空' }]}
                 >
                     <Input placeholder="请输入链接" />
